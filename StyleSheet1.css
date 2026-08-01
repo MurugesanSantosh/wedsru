@@ -1,0 +1,747 @@
+﻿/* ==========================================
+   Sai Krishna ❤️ Sruthi Wedding Invitation
+   Part 2A
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+    --lavender: #b58cd6;
+    --gold: #d4af37;
+    --cream: #fffaf4;
+    --white: #ffffff;
+    --black: #222;
+    --text: #555;
+    --glass: rgba(255,255,255,.15);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: 'Poppins',sans-serif;
+    overflow-x: hidden;
+}
+
+img {
+    width: 100%;
+    display: block;
+}
+
+section {
+    padding: 90px 8%;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Cinzel',serif;
+    font-weight: 700;
+}
+
+h2 {
+    text-align: center;
+    color: var(--gold);
+    font-size: 42px;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+    h2::after {
+        content: "";
+        width: 90px;
+        height: 3px;
+        background: var(--lavender);
+        position: absolute;
+        left: 50%;
+        bottom: -15px;
+        transform: translateX(-50%);
+    }
+
+#loader {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(135deg,#3d2348,#8d67c8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: #fff;
+}
+
+    #loader h1 {
+        font-size: 48px;
+        letter-spacing: 3px;
+    }
+
+    #loader h3 {
+        color: gold;
+        margin: 15px 0;
+    }
+
+    #loader p {
+        margin-top: 20px;
+        opacity: .8;
+        letter-spacing: 2px;
+    }
+
+    #loader h2 {
+        font-size: 60px;
+        color: #ffd700;
+        margin-bottom: 30px;
+    }
+
+#hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url("assets/images/hero.jpg") center center/cover;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,.45);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 5;
+    color: white;
+    max-width: 900px;
+    animation: fadeUp 1.5s;
+}
+
+    .hero-content p {
+        letter-spacing: 4px;
+        text-transform: uppercase;
+        margin-bottom: 15px;
+    }
+
+    .hero-content h1 {
+        font-size: 70px;
+        color: #fff;
+        text-shadow: 0 8px 18px rgba(0,0,0,.4);
+    }
+
+    .hero-content span {
+        display: block;
+        font-size: 45px;
+        margin: 15px 0;
+    }
+
+    .hero-content h3 {
+        margin-top: 25px;
+        font-weight: 400;
+        color: #f3e8ff;
+        letter-spacing: 2px;
+    }
+
+.btn {
+    display: inline-block;
+    margin-top: 40px;
+    background: linear-gradient(45deg,var(--gold),#f6d56a);
+    color: #222;
+    text-decoration: none;
+    padding: 16px 40px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: .4s;
+    box-shadow: 0 10px 30px rgba(212,175,55,.35);
+}
+
+    .btn:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 18px 40px rgba(212,175,55,.5);
+    }
+
+.card {
+    max-width: 700px;
+    margin: auto;
+    background: rgba(255,255,255,.7);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+    padding: 50px;
+    text-align: center;
+    border: 1px solid rgba(255,255,255,.4);
+    box-shadow: 0 20px 45px rgba(0,0,0,.08);
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media(max-width:768px) {
+    section {
+        padding: 70px 20px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 42px;
+    }
+
+    .hero-content h3 {
+        font-size: 18px;
+    }
+
+    .btn {
+        padding: 14px 28px;
+    }
+
+    .card {
+        padding: 30px 20px;
+    }
+}
+/* ==========================================
+   COUNTDOWN SECTION
+========================================== */
+
+#countdown {
+    background: linear-gradient(180deg,#fffaf7,#f7efff);
+}
+
+.timer {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 25px;
+    max-width: 900px;
+    margin: 50px auto 0;
+}
+
+    .timer div {
+        background: #fff;
+        border-radius: 25px;
+        padding: 35px 20px;
+        text-align: center;
+        box-shadow: 0 20px 45px rgba(0,0,0,.08);
+        border: 2px solid rgba(181,140,214,.18);
+        transition: .4s;
+    }
+
+        .timer div:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 55px rgba(181,140,214,.20);
+        }
+
+    .timer h1 {
+        font-size: 56px;
+        color: var(--gold);
+        margin-bottom: 10px;
+    }
+
+    .timer p {
+        color: var(--text);
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 14px;
+    }
+
+/* ==========================================
+   COUPLE SECTION
+========================================== */
+
+#couple {
+    background: #fff;
+}
+
+.couple-container {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 60px;
+    align-items: center;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.person {
+    text-align: center;
+}
+
+    .person img {
+        width: 340px;
+        height: 340px;
+        object-fit: cover;
+        margin: auto;
+        border-radius: 50%;
+        border: 8px solid white;
+        box-shadow: 0 25px 60px rgba(0,0,0,.15);
+        transition: .5s;
+    }
+
+        .person img:hover {
+            transform: scale(1.05);
+        }
+
+    .person h3 {
+        margin-top: 25px;
+        color: var(--gold);
+        font-size: 34px;
+    }
+
+    .person p {
+        margin-top: 10px;
+        color: #777;
+        font-size: 18px;
+    }
+
+/* ==========================================
+   WEDDING & RECEPTION
+========================================== */
+
+#wedding,
+#reception {
+    background: linear-gradient(180deg,#faf4ff,#ffffff);
+}
+
+    #wedding .card,
+    #reception .card {
+        transition: .5s;
+    }
+
+        #wedding .card:hover,
+        #reception .card:hover {
+            transform: translateY(-10px);
+        }
+
+.card i {
+    font-size: 42px;
+    color: var(--lavender);
+    margin-bottom: 25px;
+}
+
+.card h3 {
+    color: var(--gold);
+    font-size: 34px;
+    margin-bottom: 15px;
+}
+
+.card h4 {
+    margin-top: 25px;
+    font-size: 28px;
+    color: var(--black);
+}
+
+.card h2 {
+    margin: 20px 0;
+    font-size: 42px;
+    color: var(--gold);
+}
+
+.card p {
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 18px;
+}
+
+.card .btn {
+    margin-top: 35px;
+}
+
+.card::before {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 5px;
+    background: linear-gradient(to right,var(--gold),var(--lavender));
+    margin: 0 auto 35px;
+    border-radius: 50px;
+}
+
+/* ==========================================
+   PARENTS SECTION
+========================================== */
+
+#parents {
+    background: #fffaf6;
+}
+
+.family {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 35px;
+    max-width: 1000px;
+    margin: auto;
+}
+
+    .family div {
+        background: white;
+        border-radius: 25px;
+        padding: 45px;
+        text-align: center;
+        box-shadow: 0 20px 40px rgba(0,0,0,.08);
+        transition: .4s;
+    }
+
+        .family div:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 28px 60px rgba(0,0,0,.12);
+        }
+
+    .family h3 {
+        color: var(--gold);
+        margin-bottom: 25px;
+        font-size: 30px;
+    }
+
+    .family p {
+        font-size: 20px;
+        color: #555;
+        margin: 10px 0;
+    }
+
+/* ==========================================
+   SECTION ANIMATION
+========================================== */
+
+#countdown,
+#couple,
+#wedding,
+#reception,
+#parents {
+    animation: fadeUp 1.2s ease;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media(max-width:992px) {
+
+    .timer {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .couple-container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .family {
+        grid-template-columns: 1fr;
+    }
+
+    .person img {
+        width: 280px;
+        height: 280px;
+    }
+}
+
+@media(max-width:600px) {
+
+    .timer {
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+    }
+
+        .timer div {
+            padding: 20px;
+        }
+
+        .timer h1 {
+            font-size: 36px;
+        }
+
+    .card {
+        padding: 35px 22px;
+    }
+
+        .card h2 {
+            font-size: 30px;
+        }
+
+        .card h3 {
+            font-size: 24px;
+        }
+
+        .card h4 {
+            font-size: 22px;
+        }
+
+    .person img {
+        width: 220px;
+        height: 220px;
+    }
+
+    .family div {
+        padding: 30px 20px;
+    }
+
+    .family h3 {
+        font-size: 24px;
+    }
+
+    .family p {
+        font-size: 17px;
+    }
+}
+/* ==========================================
+   GALLERY SECTION
+========================================== */
+
+#gallery {
+    background: linear-gradient(180deg,#ffffff,#faf6ff);
+}
+
+.gallery {
+    max-width: 1200px;
+    margin: 50px auto 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+    gap: 25px;
+}
+
+    .gallery img {
+        width: 100%;
+        height: 350px;
+        object-fit: cover;
+        border-radius: 20px;
+        cursor: pointer;
+        transition: .5s ease;
+        box-shadow: 0 15px 35px rgba(0,0,0,.12);
+    }
+
+        .gallery img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 25px 50px rgba(181,140,214,.35);
+        }
+
+/* ==========================================
+   RSVP SECTION
+========================================== */
+
+#rsvp {
+    background: linear-gradient(180deg,#faf3ff,#fff);
+}
+
+form {
+    max-width: 700px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+    form input,
+    form textarea {
+        padding: 18px 22px;
+        border-radius: 15px;
+        border: 2px solid #ece2f7;
+        font-size: 16px;
+        outline: none;
+        font-family: 'Poppins',sans-serif;
+        transition: .3s;
+    }
+
+    form textarea {
+        resize: none;
+        height: 170px;
+    }
+
+        form input:focus,
+        form textarea:focus {
+            border-color: var(--lavender);
+            box-shadow: 0 0 15px rgba(181,140,214,.25);
+        }
+
+    form button {
+        background: linear-gradient(45deg,var(--gold),#f7d96a);
+        color: #222;
+        border: none;
+        padding: 18px;
+        border-radius: 50px;
+        cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+        transition: .4s;
+    }
+
+        form button:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 15px 35px rgba(212,175,55,.35);
+        }
+
+/* ==========================================
+   FOOTER
+========================================== */
+
+footer {
+    background: #2d2038;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+    footer h2 {
+        color: #fff;
+        margin-bottom: 20px;
+    }
+
+        footer h2::after {
+            background: var(--gold);
+        }
+
+    footer p {
+        max-width: 700px;
+        margin: 20px auto;
+        color: #ddd;
+        line-height: 1.8;
+    }
+
+    footer h3 {
+        margin-top: 30px;
+        color: var(--gold);
+        font-size: 30px;
+    }
+
+/* ==========================================
+   FLOWER PETALS
+========================================== */
+
+#petals {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    overflow: hidden;
+    z-index: 999;
+}
+
+.petal {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background: radial-gradient(circle,#ffd5ea,#ff9ecb);
+    border-radius: 60% 40% 60% 40%;
+    opacity: .8;
+    animation: fall linear forwards;
+}
+
+@keyframes fall {
+    from {
+        transform: translateY(-100px) rotate(0deg);
+    }
+
+    to {
+        transform: translateY(120vh) rotate(720deg);
+    }
+}
+
+/* ==========================================
+   SCROLLBAR
+========================================== */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #faf4ff;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(var(--gold),var(--lavender));
+    border-radius: 20px;
+}
+
+/* ==========================================
+   IMAGE LIGHTBOX
+========================================== */
+
+.lightbox {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+    .lightbox img {
+        max-width: 90%;
+        max-height: 90%;
+        border-radius: 15px;
+    }
+
+    .lightbox.active {
+        display: flex;
+    }
+
+/* ==========================================
+   FLOAT ANIMATION
+========================================== */
+
+.float {
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* ==========================================
+   FADE-IN EFFECT
+========================================== */
+
+.fade {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all .8s ease;
+}
+
+    .fade.show {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+/* ==========================================
+   MOBILE OPTIMIZATION
+========================================== */
+
+@media(max-width:768px) {
+
+    .gallery {
+        grid-template-columns: 1fr;
+    }
+
+        .gallery img {
+            height: 300px;
+        }
+
+    footer {
+        padding: 60px 20px;
+    }
+
+        footer h3 {
+            font-size: 24px;
+        }
+
+    form {
+        gap: 15px;
+    }
+}
